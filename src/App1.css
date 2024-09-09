@@ -1,0 +1,135 @@
+.App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .nav-link {
+    position: relative;
+    padding-bottom: 8px; /* Space for the bottom border */
+    border-bottom: 2px solid rgba(231, 226, 226, 0.867); /* Default bottom border */
+    color: black; /* Default text color */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+    margin-right: 30px;
+    background-color: transparent;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Position it just above the bottom border */
+    width: 100%;
+    height: 2px; /* Underline height */
+    background-color: transparent; /* Default (invisible) underline color */
+    transition: background-color 0.3s ease; /* Smooth transition for underline color */
+  }
+  
+  .nav-link-active {
+    color: skyblue !important;; /* Sky blue text color when active */
+  }
+  
+  .nav-link-active::after {
+    background-color: skyblue; /* Sky blue underline when active */
+  }
+  
+  .text-red {
+    color: red;
+  }
+  
+  .text-xs {
+    font-size: x-small;
+  }
+  
+  .text-sm {
+    font-size: small;
+  }
+  
+  .container {
+    margin-left: 0 !important;
+  }
+  
+  .card-custom {
+    width: 25rem;
+    margin: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-img-custom {
+    height: 15rem;
+    object-fit: cover;
+  }
+  
+  .card-body-custom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-title-custom {
+    text-align: start;
+    font-size: 1.2rem;
+  }
+  
+  .card-text-custom {
+    text-align: start;
+    font-size: 0.9rem;
+    color: gray;
+  }
+  
+  .btn-favourite {
+    font-size: 0.8rem;
+    display: inline-flex;
+    justify-content: left;
+    align-items: left;
+    text-decoration: none;
+    color: gray;
+    padding: 0;
+  }
+  
+  .row-custom {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .col-custom {
+    padding: 0;
+    height: 100%;
+  }
+  
