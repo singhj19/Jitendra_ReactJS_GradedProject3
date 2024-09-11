@@ -133,3 +133,34 @@
     height: 100%;
   }
   
+  /* MovieDetails.css */
+
+.transparent-modal .modal-content {
+  background-color: transparent !important; /* Make the modal background transparent */
+  border: none; /* Remove borders */
+  box-shadow: none; /* Remove shadow */
+}
+
+.nav-controls {
+  position: absolute;
+  top: 10px; /* Position it near the navigation bar */
+  right: 10px;
+  z-index: 1050; /* Ensure it's on top */
+}
+
+.modal-body img {
+  max-height: 90vh; /* Allow the image to fit well in view */
+  object-fit: contain;
+}
+
+
+.modal-content {
+  background-color: transparent;
+  width: 100%;
+  height: 100%
+}
+
+.modal-content-center {
+  text-align: center;
+  align-items: center;  
+}
