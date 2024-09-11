@@ -5,9 +5,9 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
-import InputGroup from 'react-bootstrap/InputGroup';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import InputGroup from "react-bootstrap/InputGroup";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 type Props = {
   onSearch: (query: string) => void;
   searchQuery: string;
@@ -68,7 +68,20 @@ const NavigationMenu: React.FC<Props> = ({ onSearch }) => {
             </NavLink>
           </Nav>
           <Form className="d-flex">
-            <Form.Control
+            <InputGroup>
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+                value={searchQuery}
+                onChange={handleSearchChange}
+              />
+              <InputGroup.Text style={{ backgroundColor: "#0040e0" }}>
+                <FontAwesomeIcon icon={faSearch} style={{ color: "white" }} />
+              </InputGroup.Text>
+            </InputGroup>
+            {/* <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
@@ -76,10 +89,9 @@ const NavigationMenu: React.FC<Props> = ({ onSearch }) => {
               value={searchQuery}
               onChange={handleSearchChange}
             />
-            <InputGroup.Text>
-                                <FontAwesomeIcon icon={faSearch} />
-                            </InputGroup.Text>
-            {/* <Button variant="outline-success">Search</Button> */}
+            <InputGroup.Text style={{ backgroundColor: "#0040e0" }}>
+              <FontAwesomeIcon icon={faSearch} style={{ color: "white" }} />
+            </InputGroup.Text> */}
           </Form>
         </Navbar.Collapse>
       </Container>

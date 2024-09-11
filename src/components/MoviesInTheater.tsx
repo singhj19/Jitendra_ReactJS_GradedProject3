@@ -55,7 +55,7 @@ const MoviesInTheater: React.FC<Props> = ({ searchQuery }) => {
       el =
         filteredMovies.length > 0 ? (
           <>
-          <Row><h5>Movies</h5></Row>
+          <Row className="ms-4 pt-1 pb-1"><h5>Movies</h5></Row>
           <Row
             xs={1}
             sm={2}

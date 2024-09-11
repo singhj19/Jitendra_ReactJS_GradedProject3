@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App1.css";
+import "./App.css";
 import NavigationMenu from "./components/Common/NavigationMenu";
 import { Route, Routes, useLocation, matchPath } from "react-router-dom";
 import MoviesInTheater from "./components/MoviesInTheater";
