@@ -12,6 +12,7 @@ import {
   faMagnifyingGlassMinus,
   faRotateLeft,
   faRotateRight,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {};
@@ -75,6 +76,10 @@ const MovieDetails = (props: Props) => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
+  };
+
+  const handleCloseModal = () => {
+    setShowPoster(false); // Assuming you manage modal visibility using a `showModal` state
   };
 
   let el;
@@ -185,37 +190,52 @@ const MovieDetails = (props: Props) => {
             centered={true}
             contentClassName="modal-content-center"
           >
-            <Modal.Header closeButton>
+            <Modal.Header
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "row-reverse",
+                borderBottomColor: "transparent",
+                paddingRight: "10%",
+              }}
+            >
               <Modal.Title id="example-custom-modal-styling-title">
-                <ButtonGroup className="image-controls">
+                <ButtonGroup
+                  className="image-controls"
+                  style={{ justifyContent: "space-between" }}
+                >
                   <div onClick={zoomOut} className="control-icon">
-                    <FontAwesomeIcon icon={faMagnifyingGlassMinus} size="2x" />
+                    <FontAwesomeIcon icon={faMagnifyingGlassMinus} />
                   </div>
                   <div onClick={zoomIn} className="control-icon">
-                    <FontAwesomeIcon icon={faMagnifyingGlassPlus} size="2x" />
+                    <FontAwesomeIcon icon={faMagnifyingGlassPlus} />
                   </div>
                   <div
                     onClick={rotateCounterClockwise}
                     className="control-icon"
                   >
-                    <FontAwesomeIcon icon={faRotateLeft} size="2x" />
+                    <FontAwesomeIcon icon={faRotateLeft} />
                   </div>
                   <div onClick={rotateClockwise} className="control-icon">
-                    <FontAwesomeIcon icon={faRotateRight} size="2x" />
+                    <FontAwesomeIcon icon={faRotateRight} />
+                  </div>
+                  <div
+                    onClick={handleCloseModal}
+                    className="control-icon"
+                    style={{ marginLeft: "20px" }}
+                  >
+                    <FontAwesomeIcon icon={faTimes} />
                   </div>
                 </ButtonGroup>
               </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body style={{ width: "100%" }}>
               <div
-                style={{
-                  transform: `scale(${zoom}) rotate(${rotation}deg)`,
-                  transition: "transform 0.3s ease",
+                style={{                  
                   maxWidth: "100%",
                   maxHeight: "80vh",
-                  width: "100%"
-                  // margin: "30%"
-
+                  width: "100%",
+                  height: "100%"                  
                 }}
               >
                 <img
@@ -224,6 +244,10 @@ const MovieDetails = (props: Props) => {
                   style={{
                     maxWidth: "100%",
                     maxHeight: "80vh",
+                    transform: `scale(${zoom}) rotate(${rotation}deg)`,
+                    transition: "transform 0.3s ease",
+                    width: "100%",
+                    height: "100%",
                   }}
                 />
               </div>

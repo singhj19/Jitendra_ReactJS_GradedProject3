@@ -42,14 +42,12 @@ const MovieItem: React.FC<Props> = ({
         try {
           const status = await isAvailableinFavourites(id);
           if (status === 200) {
-            // alert('Already added to favourites');
             toast.error("Already added to favourites", { autoClose: 500 });
           }
         } catch (error) {
           // If a 404 error occurs, it means the movie is not in favourites yet
           if (axios.isAxiosError(error) && error.response?.status === 404) {
             await addToFavourite(movie);
-            // alert('Added to favourites');
             toast.success("Movie added to favourites!", { autoClose: 500 });
           } else {
             throw error; // Re-throw other errors

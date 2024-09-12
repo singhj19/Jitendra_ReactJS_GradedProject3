@@ -1,5 +1,1 @@
-export type LoadingStatus = 'LOADING' | 'LOADED' | 'ERROR_LOADING';
-
-// export {
-//     LoadingStatus
-// };
+export type LoadingStatus = "LOADING" | "LOADED" | "ERROR_LOADING";

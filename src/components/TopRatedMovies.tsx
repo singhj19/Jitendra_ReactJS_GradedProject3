@@ -55,31 +55,33 @@ const TopRatedMovies: React.FC<Props> = ({ searchQuery }) => {
       el =
         filteredMovies.length > 0 ? (
           <>
-          <Row className="ms-4 pt-1 pb-1"><h5>Movies</h5></Row>
-          <Row
-            xs={1}
-            sm={2}
-            md={3}
-            lg={6}
-            xl={8}
-            className="g-4"
-            style={{ width: "100%", margin: "0", padding: "0" }}
-          >
-            {filteredMovies.map((movie) => (
-              <Col
-                key={movie.id}
-                className="d-flex align-items-stretch"
-                style={{ padding: "0", height: "100%" }}
-              >
-                <MovieItem
-                  movie={movie}
-                  filter="top-rated-movies"
-                  favourites={new Set<string>()} // Pass an empty set for favourites
-                  updateFavourites={updateFavourites} // Pass the no-op function
-                />
-              </Col>
-            ))}
-          </Row>
+            <Row className="ms-4 pt-1 pb-1">
+              <h5>Movies</h5>
+            </Row>
+            <Row
+              xs={1}
+              sm={2}
+              md={3}
+              lg={6}
+              xl={8}
+              className="g-4"
+              style={{ width: "100%", margin: "0", padding: "0" }}
+            >
+              {filteredMovies.map((movie) => (
+                <Col
+                  key={movie.id}
+                  className="d-flex align-items-stretch"
+                  style={{ padding: "0", height: "100%" }}
+                >
+                  <MovieItem
+                    movie={movie}
+                    filter="top-rated-movies"
+                    favourites={new Set<string>()} // Pass an empty set for favourites
+                    updateFavourites={updateFavourites} // Pass the no-op function
+                  />
+                </Col>
+              ))}
+            </Row>
           </>
         ) : (
           <Alert variant="warning">No movies found matching your search.</Alert>

@@ -81,17 +81,6 @@ const NavigationMenu: React.FC<Props> = ({ onSearch }) => {
                 <FontAwesomeIcon icon={faSearch} style={{ color: "white" }} />
               </InputGroup.Text>
             </InputGroup>
-            {/* <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-            <InputGroup.Text style={{ backgroundColor: "#0040e0" }}>
-              <FontAwesomeIcon icon={faSearch} style={{ color: "white" }} />
-            </InputGroup.Text> */}
           </Form>
         </Navbar.Collapse>
       </Container>

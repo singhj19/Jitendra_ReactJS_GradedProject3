@@ -65,7 +65,9 @@ const Favourites: React.FC<Props> = ({ searchQuery }) => {
 
   return (
     <>
-      <Row className="ms-4 pt-1 pb-1"><h5>Favouites</h5></Row>
+      <Row className="ms-4 pt-1 pb-1">
+        <h5>Favouites</h5>
+      </Row>
       <Row xs={1} sm={2} md={3} lg={6} xl={8} className="g-4">
         {filteredMovies.map((movie) => (
           <Col key={movie.id}>
