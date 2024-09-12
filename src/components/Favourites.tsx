@@ -39,13 +39,21 @@ const Favourites: React.FC<Props> = ({ searchQuery }) => {
     console.log("Movies:", movies); // Ensure movies state is updated
   }, [movies]);
 
-  const updateFavourites = async () => {
-    // Re-fetch the favourites after adding/removing
+  const updateFavourites = async (movieId: string) => {
+    // Optimistically remove the movie from the list before making the API call
+    setMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== movieId));
+
     try {
+      // Send request to remove the movie from the favourites
+      await axios.delete(
+        `${process.env.REACT_APP_API_BASE_URL}/favourites/${movieId}`
+      );
+
+      // Re-fetch the favourites after removal
       const response = await axios.get(
         `${process.env.REACT_APP_API_BASE_URL}/favourites`
       );
-      const fetchedMovies: IMovie[] = response.data.favourites || [];
+      const fetchedMovies: IMovie[] = response.data || [];
       setMovies(fetchedMovies);
 
       // Ensure that the favourite IDs are strings
@@ -75,7 +83,7 @@ const Favourites: React.FC<Props> = ({ searchQuery }) => {
               movie={movie}
               filter="favourite"
               favourites={favourites}
-              updateFavourites={updateFavourites}
+              updateFavourites={() => updateFavourites(movie.id)} // Pass the movie ID for removal
             />
           </Col>
         ))}
